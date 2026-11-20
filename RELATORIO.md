@@ -5,10 +5,12 @@
 | | Integrante 1 | Integrante 2 |
 | --- | --- | --- |
 | Nome | Arthur Reis | Matheus Assis |
-| Sistema operacional | Windows 11 (10.0.26200) | |
-| Tipo de disco (HDD, SSD SATA ou NVMe) | NVMe (C:) e HDD SATA (D:) | |
-| Modelo do disco | Viper M.2 VPN100 (477 GB) e Seagate ST2000DM008 (1,8 TB) | |
-| Ferramenta usada (fio, CrystalDiskMark, WSL) | fio 3.43 para Windows (PowerShell) | |
+| Sistema operacional | Windows 11 (10.0.26200) | igual ao Integrante 1 |
+| Tipo de disco (HDD, SSD SATA ou NVMe) | NVMe (C:) e HDD SATA (D:) | igual ao Integrante 1 |
+| Modelo do disco | Viper M.2 VPN100 (477 GB) e Seagate ST2000DM008 (1,8 TB) | igual ao Integrante 1 |
+| Ferramenta usada (fio, CrystalDiskMark, WSL) | fio 3.43 para Windows (PowerShell) | igual ao Integrante 1 |
+
+A dupla usou um único computador (o do Arthur), então todas as medições valem para os dois integrantes.
 
 As saídas completas do `fio` de cada teste estão na pasta `resultados/` (`nvme_*` e `hdd_*`).
 
@@ -16,12 +18,10 @@ As saídas completas do `fio` de cada teste estão na pasta `resultados/` (`nvme
 
 | Teste | Integrante | IOPS | Throughput (MB/s) | Latência média (com unidade) |
 | --- | --- | --- | --- | --- |
-| A — Sequencial 1 MB | 1 (NVMe) | 1654 | 1735 | 600,54 µs |
-| B — Aleatório 4 KB | 1 (NVMe) | 59,1k | 242 | 344,50 µs |
-| A — Sequencial 1 MB | 1 (HDD) | 182 | 191 | 5450,47 µs (5,45 ms) |
-| B — Aleatório 4 KB | 1 (HDD) | 228 | 0,94 | 139975,47 µs (140 ms) |
-| A — Sequencial 1 MB | 2 | | | |
-| B — Aleatório 4 KB | 2 | | | |
+| A — Sequencial 1 MB | 1 e 2 (NVMe) | 1654 | 1735 | 600,54 µs |
+| B — Aleatório 4 KB | 1 e 2 (NVMe) | 59,1k | 242 | 344,50 µs |
+| A — Sequencial 1 MB | 1 e 2 (HDD) | 182 | 191 | 5450,47 µs (5,45 ms) |
+| B — Aleatório 4 KB | 1 e 2 (HDD) | 228 | 0,94 | 139975,47 µs (140 ms) |
 
 Throughput em MB/s (em MiB/s: 1655, 231, 183 e 0,89). O teste B rodou com `iodepth=32`.
 
@@ -37,9 +37,8 @@ Throughput em MB/s (em MiB/s: 1655, 231, 183 e 0,89). O teste B rodou com `iodep
 
 | Integrante | IOPS com `iodepth=1` | IOPS com `iodepth=32` | Quantas vezes maior |
 | --- | --- | --- | --- |
-| 1 (NVMe) | 9736 | 59,1k | 6,1x |
-| 1 (HDD) | 96 | 228 | 2,4x |
-| 2 | | | |
+| 1 e 2 (NVMe) | 9736 | 59,1k | 6,1x |
+| 1 e 2 (HDD) | 96 | 228 | 2,4x |
 
 **Pergunta 2.** O IOPS mudou muito? Por quê?
 
@@ -49,9 +48,8 @@ Throughput em MB/s (em MiB/s: 1655, 231, 183 e 0,89). O teste B rodou com `iodep
 
 | Integrante | Throughput com `--direct=1` (do passo 1) | Throughput sem `--direct=1` (2ª rodada) |
 | --- | --- | --- |
-| 1 (NVMe) | 1735 MB/s | 5426 MB/s |
-| 1 (HDD) | 191 MB/s | 3899 MB/s |
-| 2 | | |
+| 1 e 2 (NVMe) | 1735 MB/s | 5426 MB/s |
+| 1 e 2 (HDD) | 191 MB/s | 3899 MB/s |
 
 **Pergunta 3.** O número explodiu? O que vocês mediram de verdade?
 
