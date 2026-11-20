@@ -1,6 +1,6 @@
 # Relatório do laboratório — Gerenciamento de Disco: HDD, SSD SATA e NVMe
 
-**Sala nº:** ___
+**Sala nº:** 3A
 
 | | Integrante 1 | Integrante 2 |
 | --- | --- | --- |
